@@ -1,9 +1,11 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
 #include "Personaje.h"
+#include <cstring>
 
 class Jugador : public Personaje {
 private:
+    char nombre[10];
     /// fisica
     float velocidadY = 0.0f;
     bool enSuelo = true;
@@ -16,7 +18,8 @@ private:
 
 public:
     Jugador();
-
+    void setNombre(const char* n);
+    const char* getNombre() const;
     /// movimiento y ataque
     void manejarInput(float dt, float pisoTop);
     void reiniciarAtaque();
@@ -29,6 +32,7 @@ public:
 
     /// vidas
     void reiniciarVida();
+    void reiniciarVidas();
     void perderVida();
 };
 

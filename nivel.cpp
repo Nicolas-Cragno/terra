@@ -7,6 +7,23 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
     nivelActual = numero;
     completado = false;
 
+    /// pantalla de inicio de cada nivel
+
+        mostrarPantallaInicio = true;
+        primerCarga= true;
+
+        if(numero==1){
+            texturaPantallaInicio.loadFromFile("presentacion0.png");
+        } else if(numero==2){
+            texturaPantallaInicio.loadFromFile("presentacion2.png");
+        } else if (numero==3){
+            texturaPantallaInicio.loadFromFile("presentacion3.png");
+        }
+
+        pantallaInicio.setTexture(texturaPantallaInicio);
+        pantallaInicio.setPosition(0,0);
+
+
     /// barras de vida
     float barraMargen = 30.f;
     float barraAncho = 200.f;
@@ -51,7 +68,7 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
     textoPuntaje.setFont(fuente);
     textoPuntaje.setCharacterSize(16);
     textoPuntaje.setFillColor(sf::Color::White);
-    textoPuntaje.setString("Puntaje: " + jugador->getPuntaje());
+    textoPuntaje.setString("Puntaje: " + std::to_string(jugador->getPuntaje()));
     textoPuntaje.setPosition(barraMargen,barraMargen + barraAlto + 25.f);
 
     /// texto jefe
@@ -78,7 +95,7 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
 
     /// piso del juego
     piso.setSize(sf::Vector2f(1500.f, 150.f));
-    piso.setPosition(0.f, 660.f);
+    piso.setPosition(0.f, 690.f);
 
     switch(numero){
         case 1: piso.setFillColor(sf::Color(230, 230, 255)); /// nieve
@@ -94,7 +111,7 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
     /// jefe
     jefe.setTextura(jefePath);
     jefe.setPosicion(700, 400);
-    jefe.configurarLimites(500, 800);
+    jefe.configurarLimites(605, 850);
 
     /// game over
     fuente.loadFromFile("arial.ttf");
@@ -112,8 +129,32 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
 void Nivel::actualizar(float dt) {
      if (gameOver) {
         if (relojGameOver.getElapsedTime().asSeconds() > 3.f) {
-            volverAlMenu();
+            banderaMenu = true;
         }
+        return;
+    }
+
+    /// pantalla de inicio
+    if (mostrarPantallaInicio)
+    {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+        {
+            /// SOLO NIVEL 1 tiene dos pantallas
+            if (nivelActual == 1 && primerCarga < 2)
+            {
+                texturaPantallaInicio.loadFromFile("presentacion1.png");
+                pantallaInicio.setTexture(texturaPantallaInicio);
+
+                primerCarga++;
+                return;
+            }
+
+            /// Para nivel 1 después de la 2da imagen
+            /// o niveles 2 y 3 directamente
+            mostrarPantallaInicio = false;
+            return;
+        }
+
         return;
     }
 
@@ -164,7 +205,8 @@ void Nivel::actualizar(float dt) {
 
     barraVidaJugador.setSize(sf::Vector2f(vidaJugador * 2, 20));
     barraVidaJefe.setSize(sf::Vector2f(vidaJefe * 2, 20));
-        textoVidas.setString("Vidas: " + std::to_string(jugador->getVidas()));
+    textoVidas.setString("Vidas: " + std::to_string(jugador->getVidas()));
+    textoPuntaje.setString("Puntaje: " + std::to_string(jugador->getPuntaje()));
 
 
     if (vidaJugador < 30)
@@ -184,6 +226,12 @@ void Nivel::actualizar(float dt) {
 }
 
 void Nivel::dibujar(sf::RenderWindow& window) {
+
+    /// pantalla inicio
+    if(mostrarPantallaInicio) {
+        window.draw(pantallaInicio);
+        return;
+    }
     /// escenarios
     window.draw(fondo);
     window.draw(piso);
@@ -197,6 +245,7 @@ void Nivel::dibujar(sf::RenderWindow& window) {
     window.draw(barraVidaJugador);
     window.draw(textoJugador);
     window.draw(textoVidas);
+    window.draw(textoPuntaje);
 
     window.draw(barraVidaJefeFondo);
     window.draw(barraVidaJefe);

@@ -14,6 +14,9 @@ private:
 public:
     Juego();
     void iniciar();
+
+    void reiniciarJuego();
+    void guardarPuntaje();
 };
 
 #endif

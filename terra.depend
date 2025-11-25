@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1763635295 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\main.cpp
+1764041350 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\main.cpp
 	"Juego.h"
 	"Menu.h"
 
@@ -441,37 +441,44 @@
 1763628950 c:\users\hp1\desktop\docs\nicolas\utn\terra\jefe.h
 	"Personaje.h"
 
-1763636270 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\juego.cpp
+1764049295 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\juego.cpp
 	"Juego.h"
 	"Menu.h"
 	<iostream>
+	<fstream>
 
-1763066151 c:\users\hp1\desktop\docs\nicolas\utn\terra\juego.h
+1764045811 c:\users\hp1\desktop\docs\nicolas\utn\terra\juego.h
 	<SFML/Graphics.hpp>
 	"Nivel.h"
 	<memory>
 
-1763633974 c:\users\hp1\desktop\docs\nicolas\utn\terra\nivel.h
+1764035693 c:\users\hp1\desktop\docs\nicolas\utn\terra\nivel.h
 	<SFML/Graphics.hpp>
 	"Jugador.h"
 	"Jefe.h"
 
-1763630805 c:\users\hp1\desktop\docs\nicolas\utn\terra\jugador.h
+1764047654 c:\users\hp1\desktop\docs\nicolas\utn\terra\jugador.h
 	"Personaje.h"
+	<cstring>
 
-1763628970 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\jugador.cpp
+1764048033 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\jugador.cpp
 	"Jugador.h"
 	<SFML/Window/Keyboard.hpp>
+	<cstring>
 
-1763636490 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\nivel.cpp
+1764044334 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\nivel.cpp
 	"Nivel.h"
 	<iostream>
 
-1763638409 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\menu.cpp
+1764049152 source:c:\users\hp1\desktop\docs\nicolas\utn\terra\menu.cpp
 	"Menu.h"
 	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+	<string>
 
-1763636706 c:\users\hp1\desktop\docs\nicolas\utn\terra\menu.h
+1764048587 c:\users\hp1\desktop\docs\nicolas\utn\terra\menu.h
 	<SFML/Graphics.hpp>
 	"Juego.h"
 

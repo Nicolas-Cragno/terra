@@ -31,6 +31,12 @@ private:
     sf::Text textoVidas;
     sf::Text textoPuntaje;
 
+    /// para la visual de inicio de nivel
+    bool mostrarPantallaInicio;
+    int primerCarga = 0;
+    sf::Texture texturaPantallaInicio;
+    sf::Sprite pantallaInicio;
+
 public:
     Nivel(int numero, Jugador* refJugador);
     void actualizar(float dt);
@@ -40,6 +46,8 @@ public:
     void reiniciar();
     void finalizar();
     void volverAlMenu();
+    bool banderaMenu = false;
+    bool pedidoMenu() const {return banderaMenu;}
     sf::Text textoGameOver;
     bool estaGameOver() const { return gameOver; }
     float tiempoGameOver() const { return relojGameOver.getElapsedTime().asSeconds(); }

@@ -1,14 +1,28 @@
 #include "Jugador.h"
 #include <SFML/Window/Keyboard.hpp>
+#include <cstring>
 
 Jugador::Jugador() {
-    vidas = 3;
+    vidas = 1;
     puntaje = 0;
     vida = 100;
 }
 
+void Jugador::setNombre(const char* n){
+    strncpy(nombre, n, 10);
+    nombre[10] = '\0';
+}
+
+const char* Jugador::getNombre() const {
+    return nombre;
+}
+
 void Jugador::reiniciarVida() {
     vida = 100;
+}
+
+void Jugador::reiniciarVidas(){
+    vidas = 3;
 }
 
 void Jugador::perderVida(){

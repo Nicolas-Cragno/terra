@@ -8,6 +8,7 @@ public:
     Menu(Juego& juego);
     void mostrar();
     void mostrarCreditos();
+    void mostrarRanking();
 
 private:
     Juego& _juego;
@@ -20,6 +21,7 @@ private:
     sf::Text _opcion1;
     sf::Text _opcion2;
     sf::Text _opcion3;
+    sf::Text _opcion4;
 
     int _opcionSeleccionada;
 
