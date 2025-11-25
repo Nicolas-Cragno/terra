@@ -111,7 +111,7 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
     /// jefe
     jefe.setTextura(jefePath);
     jefe.setPosicion(700, 400);
-    jefe.configurarLimites(605, 850);
+    jefe.configurarLimites(605, 800);
 
     /// game over
     fuente.loadFromFile("arial.ttf");

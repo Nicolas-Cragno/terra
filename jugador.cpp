@@ -3,7 +3,7 @@
 #include <cstring>
 
 Jugador::Jugador() {
-    vidas = 1;
+    vidas = 3;
     puntaje = 0;
     vida = 100;
 }
