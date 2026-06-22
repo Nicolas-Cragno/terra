@@ -57,7 +57,7 @@ Nivel::Nivel(int numero, Jugador* refJugador) {
     textoJugador.setPosition(
     barraMargen + barraAncho / 2 - textoJugador.getLocalBounds().width / 2, barraMargen - 25.f);
 
-    /// VIDAS
+    /// vidas
     textoVidas.setFont(fuente);
     textoVidas.setCharacterSize(16);
     textoVidas.setFillColor(sf::Color::Cyan);
@@ -140,7 +140,7 @@ void Nivel::actualizar(float dt) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
         {
             /// SOLO NIVEL 1 tiene dos pantallas
-            if (nivelActual == 1 && primerCarga < 2)
+            if (nivelActual == 1 && primerCarga < 4)
             {
                 texturaPantallaInicio.loadFromFile("presentacion1.png");
                 pantallaInicio.setTexture(texturaPantallaInicio);

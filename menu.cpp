@@ -5,9 +5,7 @@
 #include <algorithm>
 #include <string>
 
-Menu::Menu(Juego& juego)
-    : _juego(juego), _window(sf::VideoMode(1500, 800), "Menu"), _opcionSeleccionada(1)
-{
+Menu::Menu(Juego& juego) : _juego(juego), _window(sf::VideoMode(1500, 800), "Menu"), _opcionSeleccionada(1){
     _font.loadFromFile("arial.ttf");
     _backgroundTexture.loadFromFile("puertoback.png");
     _background.setTexture(_backgroundTexture);
@@ -19,14 +17,12 @@ Menu::Menu(Juego& juego)
     _opcion4.setFont(_font); _opcion4.setString("Salir"); _opcion4.setCharacterSize(40);
 }
 
-void Menu::dibujarTexto(sf::Text& texto, float y)
-{
+void Menu::dibujarTexto(sf::Text& texto, float y) {
     texto.setPosition(_window.getSize().x / 2 - texto.getLocalBounds().width / 2, y);
     _window.draw(texto);
 }
 
-void Menu::mostrar()
-{
+void Menu::mostrar(){
     while (_window.isOpen())
     {
         sf::Event event;
@@ -123,13 +119,12 @@ void Menu::mostrarCreditos() {
             }
         }
 
-        ///creditosWindow.clear(sf::Color::Black);
+        //creditosWindow.clear(sf::Color::Black);
         creditosWindow.draw(fondo);
         creditosWindow.draw(texto);
         creditosWindow.display();
     }
 }
-
 
 struct JugadorScore {
     std::string nombre;

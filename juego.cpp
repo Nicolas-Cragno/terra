@@ -26,7 +26,6 @@ void Juego::reiniciarJuego() {
     jugador.setPosicion(50, 600);
 }
 
-
 void Juego::iniciar() {
    bool esMenu = false;
     sf::Clock reloj;
